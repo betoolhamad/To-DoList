@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="text-center" style="min-height: 50vh; display: flex; flex-direction: column; justify-content: flex-end; align-items: center;">
+    <h1 class="display-4 mb-auto mt-5">Mange Your Time with To-Do-List!</h1>
+
+           <form asp-controller="ToDoList" asp-action="Index" method="get">
+    <!-- حقل الإدخال -->
+            <label class="d-flex justify-content-start text-white">Enter Your Name</label>
+            <input type="text" name="userName" placeholder="Name" class="mb-3">
+            <button type="submit" class="btn btn-secondary mb-5 custom-btn">Start</button>
+</form>
+
+
+

@@ -1,0 +1,63 @@
+@model ToDoItem
+
+@{
+    
+    Layout="/Views/Shared/_Layout.cshtml";
+}
+@* <div class="modal" tabindex="-1" id="del">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">تأكيد الحذف</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>هل بالفعل تريد حذف هذا السجل؟</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء الأمر</button>
+        <button type="button" class="btn btn-danger" onclick="confirmdelete1()">حذف</button>
+      </div>
+    </div>
+  </div>
+</div> *@
+@* 
+<div id="container1">
+  <div class="row">
+    <div class="col">
+
+      	<form class="search1" asp-action="UpdateItem" method="post">
+        <h1>To-Do List <i class="fa fa-plus"></i><button type="submit" style="border: none; background: none;"></button></h1>
+        <input type="hidden" asp-for="@Model.Id">
+
+        <input type="text" asp-for="@Model.Description">
+    </form>
+    </div>
+  </div>
+
+    
+
+</div> *@
+
+
+<div class="container1">
+    <div class="row">
+        <div class="col">
+            <div class="search ">
+                <h1>Editing List</h1>
+
+                <form class="search1 flex-column d-flex align-items-center" asp-action="UpdateItem" method="post">
+                     <input type="hidden" asp-for="@Model.Id">
+                     <input type="text" asp-for="@Model.Description">
+                      <button type="submit" class="btn m-2 w-100" style="background-color:#b3c583">Edit</button>
+                 </form>
+              
+              
+
+
+        
+
+            </div>
+        </div>
+    </div>
+

@@ -1,0 +1,92 @@
+@model IEnumerable<ToDoItem>
+
+@{
+    
+    Layout="/Views/Shared/_Layout.cshtml";
+    var userName = ViewData["UserName"] as string;
+
+}
+@* <div class="modal" tabindex="-1" id="del">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">تأكيد الحذف</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>هل بالفعل تريد حذف هذا السجل؟</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء الأمر</button>
+        <button type="button" class="btn btn-danger" onclick="confirmdelete1()">حذف</button>
+      </div>
+    </div>
+  </div>
+</div> *@
+<h1 class="display-4 mb-auto mt-5">Welcome, @userName!</h1>
+
+<div class="container1">
+
+    <div class="row">
+        <div class="col">
+            <div class="search ">
+                <h1>Search - Filter</h1>
+
+             <form class="search1 d-flex flex-column align-items-center w-100" asp-action="Index" method="get">
+    <!-- حقل الإدخال -->
+            <input type="text" name="Description" placeholder="Search" class="mb-3 w-100">
+            
+            <!-- مجموعة الأزرار -->
+            <div class="d-flex justify-content-between w-100 mt-1">
+                <button  type="submit" class="btn w-100 me-2" style="background-color:#b3c583">Search</button>
+                <a asp-action="Index" class="btn btn-secondary w-100">Remove Filter</a> @* هذا هو التعديل! *@
+            </div>
+            </form>
+
+
+               
+
+            </div>
+        </div>
+    </div>
+
+
+        <div class="col mt-2">
+            <form asp-action="CreateList" method="post">
+                <h1>To-Do List <i class="fa fa-plus"></i></h1>
+                <input type="text" name="Description" placeholder="Add New Todo">
+             </form>
+
+        
+
+            <ul>
+                @foreach (var items in Model) {
+                    <li>
+                        <div id="text-@items.Id" contenteditable="false" onkeydown="handleKeyDown(event, @items.Id)" onblur="saveEditedText(@items.Id)">
+                            
+                            <span>
+                                <a asp-action="DeleteItem" asp-route-id="@items.Id">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                                <a asp-action="EditItem" asp-route-id="@items.Id">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                            </span>
+                            @items.Description
+
+                        </div>
+
+                    @* <span><a onclick="showmessage(@items.Id)"><i class="fa fa-trash"></i></a></span>@items.Description *@
+
+                    </li>
+            
+                }
+            </ul>
+        </div>
+
+        
+</div>
+
+
+   
+	
